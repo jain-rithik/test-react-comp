@@ -29,9 +29,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash].[ext]',
+              name: '[name].[ext]',
               outputPath: 'assets/',
-              publicPath: 'identity-card/dist/assets/',
+              publicPath: 'node_modules/identity-card/dist/assets/',
             },
           },
         ],
