@@ -1,30 +1,22 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production', // or 'development'
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    library: 'identity-card',
-    libraryTarget: 'umd',
-    globalObject: 'this'
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react'],
-          },
-        }
+        use: 'babel-loader',
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -34,28 +26,14 @@ module.exports = {
             options: {
               name: '[name].[hash].[ext]',
               outputPath: 'assets/',
-              publicPath: 'assets/',
+              publicPath: '/assets/',
             },
           },
         ],
       },
-    ]
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react',
-      root: 'React'
-    },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'react-dom',
-      root: 'ReactDOM'
-    }
-  }
 };
