@@ -23,11 +23,11 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {
-              name: '[name].[hash].[ext]',
-              outputPath: 'dist/assets/',
-              publicPath: 'dist/assets/',
-            },
+            // options: {
+            //   name: '[name].[hash].[ext]',
+            //   outputPath: 'dist/assets/',
+            //   publicPath: 'dist/assets/',
+            // },
           },
         ],
       },
